@@ -16,7 +16,8 @@ module.exports = {
     'eslint-config-prettier',
     'prettier'
   ],
-  plugins: ['prettier'],
+  parser: '@typescript-eslint/parser',
+  plugins: ['prettier', 'import', 'react-hooks', '@typescript-eslint'],
   settings: {
     react: {
       // Nói eslint-plugin-react tự động biết version của React.
@@ -55,6 +56,25 @@ module.exports = {
         printWidth: 120,
         jsxSingleQuote: true
       }
-    ]
+    ],
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        ts: 'never',
+        tsx: 'never'
+      }
+    ],
+    'import/no-unresolved': 'off',
+    'import/prefer-default-export': 'off',
+    'import/order': [
+      'error',
+      {
+        groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
+        'newlines-between': 'always'
+      }
+    ],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn'
   }
 }
